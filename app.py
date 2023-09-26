@@ -33,7 +33,7 @@ def predict():
     print(Referee)
 
     
-    prediction = model.predict(np.array([Year,Stadium,HomeTeamName,AwayTeamName,Referee]).reshape(1,-1))
+    prediction = model.predict(np.asarray(Year,Stadium,HomeTeamName,AwayTeamName,Referee).reshape(1,-1))
 #     pred=model.predict(np.array([team1,team2]).reshape(1,-1))
 #     # Decode the prediction back to 'Winnermatch' labels
     #predicted_winner = le.inverse_transform([prediction)
