@@ -7,8 +7,8 @@ import numpy as np
 app = Flask(__name__)
 
 # Load your trained machine learning model
-model = pickle.load('model1.pkl', 'rb')
-le=pickle.load("label_encoder1.pkl", 'rb')
+model = pickle.load(open('model1.pkl', 'rb'))
+le=pickle.load(open("label_encoder1.pkl", 'rb'))
 # Load the label encoder for 'Winnermatch'
 #label_encoder = LabelEncoder()
 # label_encoder.fit(['Team_A', 'Team_B', 'Draw'])
