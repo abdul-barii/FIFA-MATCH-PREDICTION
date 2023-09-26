@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-import pickle
+import joblib
 import numpy as np
 
 app = Flask(__name__)
 
 # Load your trained machine learning model
-model = pickle.load(open('model1.pkl', 'rb'))
-le=pickle.load(open("label_encoder1.pkl", 'rb'))
+model = joblib.load('model1.joblib')
+le=joblib.load("label_encoder1.joblib")
 # Load the label encoder for 'Winnermatch'
 #label_encoder = LabelEncoder()
 # label_encoder.fit(['Team_A', 'Team_B', 'Draw'])
@@ -33,7 +33,7 @@ def predict():
     print(Referee)
 
     
-    prediction = model.predict(np.asarray(Year,Stadium,HomeTeamName,AwayTeamName,Referee).reshape(1,-1))
+    prediction = model.predict(np.array([Year,Stadium,HomeTeamName,AwayTeamName,Referee]).reshape(1,-1))
 #     pred=model.predict(np.array([team1,team2]).reshape(1,-1))
 #     # Decode the prediction back to 'Winnermatch' labels
     #predicted_winner = le.inverse_transform([prediction)

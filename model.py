@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 
 # Load your FIFA dataset here
 # Replace 'FIFA.csv' with the actual path to your dataset
-fifa_data = pd.read_csv('./FIFA_FINAL/FIFA.CSV')
+fifa_data = pd.read_csv('FIFA.CSV')
 
 # Preprocess your data, including feature selection and encoding categorical variables
 # Select relevant features and encode categorical columns
@@ -52,9 +52,9 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy * 100:.2f}%")
 
-joblib.dump(model, 'model1.pkl')
+joblib.dump(model, 'model1.joblib')
 # # Now you have a trained model that can make predictions based on input features
 # # You can integrate this model into your web application to predict match outcomes
 
-joblib.dump(le, 'label_encoder1.pkl')
+joblib.dump(le, 'label_encoder1.joblib')
 
